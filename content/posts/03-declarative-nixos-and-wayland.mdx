@@ -1,0 +1,68 @@
+---
+title: "Declarative Bliss: NixOS, Wayland & Daily Happenings"
+description: "Notes from the terminal: configuring scrollable tiling window managers, hermetic flake devshells, and declarative development environments."
+date: "2026-09-03"
+category: "Linux & Nix"
+tags: ["nixos", "wayland", "niri", "dev-setup"]
+image: "/media/glance/poster.webp"
+featured: false
+draft: false
+---
+
+There is a strange tranquility that comes from knowing your entire workstation is described in code. No hidden state, no mystery packages, no "it worked on my machine."
+
+Today's dispatch covers recent updates to my declarative dotfiles, switching between Wayland compositors, and maintaining reproducible development flakes.
+
+---
+
+## The Window Manager Experiment
+
+Recently, I've been experimenting with dynamic and scrollable tiling environments like [Niri](https://github.com/YaLTeR/niri) and Umbriel. Instead of traditional fixed binary trees, an infinite horizontal ribbon brings a tangible mental model to multi-monitor workflows.
+
+<Callout type="note" title="Compositor Observation">
+Scrolling tiling feels drastically more natural on ultra-wide panels. Windows remain at their ideal column widths without manual resizing gymnastics.
+</Callout>
+
+### Current Desktop Stack Comparison
+
+| Component | Choice | Reason |
+| :--- | :--- | :--- |
+| **OS** | NixOS Unstable | Flake locks + atomic rollbacks |
+| **Shell** | Fish + Starship | Minimal latency, zero-config completion |
+| **Browser** | Chromium / Firefox | Keyboard navigation, developer tools |
+| **Editor** | Neovim + Helix | Modal editing speed |
+| **Terminal** | Ghostty / Foot | GPU acceleration & low latency |
+
+---
+
+## Callout Variations
+
+Here is how different callout types render for important alerts, security notices, and quotes:
+
+<Callout type="tip" title="Pro Tip: Garbage Collection">
+Run `nix-collect-garbage --delete-older-than 14d` bi-weekly to prevent store inflation while retaining instant rollback capability.
+</Callout>
+
+<Callout type="warning" title="Warning on Proprietary Drivers">
+When updating kernel trees on hybrid graphics laptops, ensure your Nvidia/Mesa modules match upstream revision tags before rebuilding your generation.
+</Callout>
+
+<Callout type="danger" title="Critical Rule">
+Never commit unencrypted secrets or GPG private keys directly into git-tracked flake trees. Always rely on `sops-nix` or `agenix`.
+</Callout>
+
+<Callout type="quote" title="Douglas Adams">
+"We are stuck with technology when what we really want is just stuff that works."
+</Callout>
+
+---
+
+## Daily Tasks & Progress
+
+- [x] Configure Paper-styled blog with Next.js 14 and MDX
+- [x] Implement Anime.js staggered entrance physics
+- [x] Enable Giscus comments on `rebizzz/rebizzz`
+- [ ] Refactor Hyprland / Niri keybindings for multi-monitor layout
+- [ ] Benchmark local LLM inference on Vulkan compute backend
+
+Stay tuned for more daily dispatches.

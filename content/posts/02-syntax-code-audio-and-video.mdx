@@ -1,0 +1,136 @@
+---
+title: "Rich Media Toolkit: Code Blocks, Video Embeds & Audio Players"
+description: "A showcase of every rich media block supported out of the box in MDX: Iosevka code blocks with copy feedback, native 60fps MP4 screencasts, lossless ambient audio, and lightbox images."
+date: "2026-09-05"
+category: "Engineering"
+tags: ["mdx", "code", "audio", "video", "media"]
+image: "/media/workspaces/poster.webp"
+featured: true
+draft: false
+---
+
+When documenting daily happenings and engineering breakthroughs, plain text is never enough. We need syntax-highlighted terminal snippets, playable screencasts, voice memos or soundtracks, and interactive link bookmarks.
+
+Here is a live demonstration of every media block crafted for this blog.
+
+---
+
+## 1. Syntax-Highlighted Code with Iosevka & Copy Button
+
+Every code block includes:
+- macOS window controls with colored status dots
+- Language indicator badge with custom icon
+- Clean Iosevka font with programming ligatures
+- One-click copy to clipboard with instant checkmark feedback
+- Dedicated dark editor canvas for high syntax contrast
+
+```nix
+# flake.nix - Declarative development environment
+{
+  description = "Paper Dispatch - Sleek personal publishing platform";
+
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  };
+
+  outputs = { self, nixpkgs }: let
+    systems = [ "x86_64-linux" "aarch64-linux" ];
+    forEachSystem = f: nixpkgs.lib.genAttrs systems (sys: f nixpkgs.legacyPackages.${sys});
+  in {
+    devShells = forEachSystem (pkgs: {
+      default = pkgs.mkShell {
+        packages = with pkgs; [ bun nodejs_22 gh git ];
+      };
+    });
+  };
+}
+```
+
+And here is a TypeScript snippet with arrow functions and type definitions:
+
+```typescript
+// src/lib/posts.ts - Fast local MDX reader
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import readingTime from 'reading-time';
+
+export interface PostMeta {
+  title: string;
+  slug: string;
+  date: string;
+  category?: string;
+  tags?: string[];
+  readingTime: string;
+}
+
+export function getPostBySlug(slug: string): { meta: PostMeta; content: string } {
+  const filePath = path.join(process.cwd(), 'content', 'posts', `${slug}.mdx`);
+  const raw = fs.readFileSync(filePath, 'utf-8');
+  const { data, content } = matter(raw);
+  
+  return {
+    meta: { ...data, slug, readingTime: readingTime(content).text } as PostMeta,
+    content,
+  };
+}
+```
+
+---
+
+## 2. High-Definition Native Video Player
+
+Embed videos seamlessly. The `<VideoPlayer />` component supports local MP4/WebM files, video poster covers, and responsive aspect ratios with zero third-party tracking:
+
+<VideoPlayer
+  src="/media/split-views/video.mp4"
+  poster="/media/split-views/poster.webp"
+  caption="Side-by-side split view workflow - dual workspace productivity on a single screen"
+/>
+
+---
+
+## 3. High-Fidelity Audio Deck
+
+Whether sharing a podcast excerpt, musical composition, or quick voice note dispatch, `<AudioPlayer />` renders a complete audio deck with play/pause, time scrubbing, volume toggling, and track details:
+
+<AudioPlayer
+  src="/audio/ambient-dispatch.wav"
+  title="Ambient Synthesizer Dispatch #01"
+  artist="432Hz C-Major 9 Analog Synthesizer Chord"
+/>
+
+---
+
+## 4. Lightbox Zoomable Images
+
+Click on the image below to open the smooth full-resolution lightbox preview:
+
+<ZoomableImage
+  src="/media/compact-mode/poster.webp"
+  alt="Minimalist Desktop Window UI"
+  caption="Minimalist desktop layout showcasing clean borders and distraction-free framing."
+/>
+
+---
+
+## 5. Rich URL Bookmark Cards
+
+Share external references with structured cards displaying hostname, title, and external link indicators:
+
+<Bookmark
+  url="https://nextjs.org"
+  title="Next.js - The React Framework for the Web"
+  description="Used by top engineering teams, Next.js enables fullstack React applications with the App Router."
+  siteName="nextjs.org"
+  image="/media/workspaces/poster.webp"
+/>
+
+<Bookmark
+  url="https://nixos.org"
+  title="NixOS Linux - The Purely Functional OS"
+  description="Declarative builds and deployments. Reproducible, declarative and reliable system configurations."
+  siteName="nixos.org"
+/>
+
+Everything renders smoothly within standard MDX.

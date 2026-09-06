@@ -1,0 +1,184 @@
+@import '@fontsource/bricolage-grotesque/400.css';
+@import '@fontsource/bricolage-grotesque/500.css';
+@import '@fontsource/bricolage-grotesque/600.css';
+@import '@fontsource/bricolage-grotesque/700.css';
+@import '@fontsource/iosevka/400.css';
+@import '@fontsource/iosevka/500.css';
+@import '@fontsource/iosevka/600.css';
+@import '@fontsource/fira-code/400.css';
+@import '@fontsource/fira-code/500.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Junicode';
+  src: url('/fonts/JunicodeVF-Roman-subset.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Junicode-Italic';
+  src: url('/fonts/JunicodeVF-Italic-subset.woff2') format('woff2');
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light dark;
+  --paper-bg: #f2f0e3;
+  --paper-ink: #242426;
+  --paper-subtle: rgba(0, 0, 0, 0.05);
+  --paper-muted: rgba(0, 0, 0, 0.03);
+  --paper-border: rgba(0, 0, 0, 0.08);
+  --paper-border-hover: rgba(0, 0, 0, 0.16);
+  --paper-card: #e8e5d6;
+  --paper-card-hover: #dfdbca;
+  --paper-text-subtle: #6c6961;
+  --paper-coral: #f76f53;
+  --paper-blue: #6287f5;
+  --paper-green: #63f78b;
+  --paper-code-bg: #111115;
+}
+
+:root[data-theme='dark'],
+.dark {
+  --paper-bg: #19191d;
+  --paper-ink: #d8d4c5;
+  --paper-subtle: rgba(255, 255, 255, 0.06);
+  --paper-muted: rgba(255, 255, 255, 0.03);
+  --paper-border: rgba(255, 255, 255, 0.08);
+  --paper-border-hover: rgba(255, 255, 255, 0.16);
+  --paper-card: #202025;
+  --paper-card-hover: #26262c;
+  --paper-text-subtle: #989489;
+  --paper-coral: #f76f53;
+  --paper-blue: #6287f5;
+  --paper-green: #63f78b;
+  --paper-code-bg: #111115;
+}
+
+html {
+  background-color: var(--paper-bg);
+  color: var(--paper-ink);
+  scroll-behavior: smooth;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+  font-variation-settings: 'width' 100;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Authentic italic serif style */
+.font-serif,
+.italic-serif,
+h1 em,
+h2 em,
+h3 em,
+.editorial-title em {
+  font-family: 'Junicode-Italic', Georgia, serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Code & Terminal Monospace Typography with Iosevka + Ligatures */
+code,
+pre,
+kbd,
+samp {
+  font-family: 'Iosevka', 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-feature-settings: 'calt' 1, 'liga' 1;
+}
+
+/* Subtle custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--paper-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--paper-subtle);
+  border-radius: 9999px;
+  border: 2px solid var(--paper-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(247, 111, 83, 0.4);
+}
+
+/* Code block and syntax highlighting styling */
+.code-block-wrapper {
+  font-family: 'Iosevka', 'Fira Code', 'JetBrains Mono', monospace;
+}
+
+.code-block-wrapper code {
+  display: grid !important;
+  min-width: 100%;
+  font-family: 'Iosevka', 'Fira Code', 'JetBrains Mono', monospace !important;
+  font-size: 14.5px !important;
+  line-height: 1.8 !important;
+}
+
+.code-block-wrapper [data-line] {
+  display: inline-block;
+  min-height: 1.6rem;
+  padding: 0 1.25rem;
+  border-left: 3px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.code-block-wrapper [data-line]:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.code-block-wrapper [data-highlighted-line] {
+  background-color: rgba(247, 111, 83, 0.16) !important;
+  border-left-color: #f76f53 !important;
+}
+
+.code-block-wrapper code[data-line-numbers] {
+  counter-reset: line-number;
+}
+
+.code-block-wrapper code[data-line-numbers] > [data-line]::before {
+  counter-increment: line-number;
+  content: counter(line-number);
+  display: inline-block;
+  width: 1.75rem;
+  margin-right: 1.25rem;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 12px;
+  user-select: none;
+}
+
+/* Inline code enhancement */
+:not(pre) > code {
+  font-family: 'Iosevka', 'Fira Code', 'JetBrains Mono', monospace !important;
+  font-size: 0.88em !important;
+  padding: 0.2em 0.45em !important;
+  border-radius: 0.45rem !important;
+  background-color: var(--paper-subtle) !important;
+  border: 1px solid var(--paper-border) !important;
+  color: var(--paper-coral) !important;
+  font-weight: 500 !important;
+}
+
+:not(pre) > code::before,
+:not(pre) > code::after {
+  content: "" !important;
+}

@@ -1,0 +1,73 @@
+---
+title: "Designing Paper: Editorial Typography, Anime.js, and Calm Interfaces"
+description: "An exploration into why warm paper palettes, Bricolage Grotesque, Junicode italics, and Anime.js spring physics make personal publishing feel intentional."
+date: "2026-09-06"
+category: "Design & UX"
+tags: ["design", "typography", "animejs", "nextjs", "css"]
+image: "/media/hero-video/poster.webp"
+featured: true
+draft: false
+---
+
+Welcome to my corner of the web. This blog is built with a singular premise: **writing should feel intentional, fast, and visually cinematic**.
+
+Every corner of this platform embraces warm matte paper tones (`#19191d` dark / `#f2f0e3` light), vibrant coral accents (`#f76f53`), subtle glassmorphic borders, and smooth spring physics powered by [Anime.js](https://animejs.com).
+
+<Badge color="coral">Aesthetic First</Badge> <Badge color="blue">Anime.js v4</Badge> <Badge color="green">Next.js 14 App Router</Badge>
+
+---
+
+## The Philosophy of Quiet Interfaces
+
+Modern web interfaces often suffer from visual noise. We flipped this by prioritizing spatial calm:
+
+1. **Dark Paper Canvas**: Instead of pitch-black OLED emptiness, we use deep warm charcoal tones that feel like physical matte paper.
+2. **Kinetic Typography**: Bricolage Grotesque paired with expressive serif italics for selective emphasis.
+3. **Optically Blurred Entrances**: Content doesn't just abruptly pop in; it glides from a subtle `blur(6px)` and slight vertical offset into crisp clarity.
+
+<Callout type="tip" title="Why Anime.js v4?">
+Anime.js gives us direct imperative control over easing curves, spring physics, and staggered grids without bloating client bundle size. It handles 60fps micro-interactions effortlessly.
+</Callout>
+
+---
+
+## Live Interactive Anime.js Experiment
+
+Below is the state-of-the-art **Kinetic Studio**, powered directly by Anime.js v4. Explore Euler spring physics with draggable kinetic chips, SVG path drawing and geometric morphing, character wavefront text scrambling, and dynamic 2D staggered ripple matrix:
+
+<KineticStudio />
+
+<AnimeDemo />
+
+---
+
+## Modular by Nature
+
+Following the elegance of projects like [Fuwari](https://github.com/saicaca/fuwari), this entire site is managed by a single config file: `site.config.ts`. 
+
+Want to change your author bio, swap your social handles, tweak the accent hue, or adjust your Giscus discussion parameters? You never need to touch core layout code - just update one typed file:
+
+```typescript
+// site.config.ts
+export const siteConfig: AppConfig = {
+  site: {
+    title: 'rebizzz.dev',
+    subtitle: 'daily dispatches, nix configs & engineering',
+    author: 'rebizzz',
+    url: 'https://rebizzz.dev',
+  },
+  theme: {
+    accent: 'coral',
+    defaultMode: 'dark',
+  },
+  giscus: {
+    enabled: true,
+    repo: 'rebizzz/rebizzz',
+    category: 'General',
+  },
+};
+```
+
+<Callout type="note" title="Feedback & Discussions">
+Scroll down to the bottom of any article to participate in discussions. Every comment is directly backed by GitHub Discussions via Giscus.
+</Callout>
