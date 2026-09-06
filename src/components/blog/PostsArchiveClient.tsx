@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import type { PostMeta } from '@/types/blog';
-import { PostCard } from '@/components/PostCard';
+import { PostCard } from '@/components/blog/PostCard';
 import { AnimeStaggerList } from '@/components/animations/AnimeWrapper';
 import { Search, X } from 'lucide-react';
 

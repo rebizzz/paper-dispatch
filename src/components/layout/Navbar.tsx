@@ -12,11 +12,19 @@ export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark'>(themeConfig.defaultMode || 'dark');
   const [mounted, setMounted] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     const activeTheme = (document.documentElement.getAttribute('data-theme') as 'light' | 'dark') || themeConfig.defaultMode || 'dark';
     setTheme(activeTheme);
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const toggleTheme = () => {
@@ -45,7 +53,11 @@ export const Navbar: React.FC = () => {
   )?.url || profileConfig.socialLinks[0]?.url || '#';
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-paper-border bg-paper-bg/85 backdrop-blur-md transition-colors duration-200">
+    <header
+      className={`sticky top-0 z-40 w-full border-b border-paper-border bg-paper-bg/85 backdrop-blur-md transition-all duration-300 ${
+        scrolled ? 'shadow-[0_4px_24px_-8px_rgba(0,0,0,0.15)] backdrop-blur-lg' : ''
+      }`}
+    >
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6">
         {/* Brand / Kinetic Logo */}
         <Link href="/" className="group flex items-center gap-3">

@@ -3,11 +3,12 @@ import Link from 'next/link';
 import { siteConfig, profileConfig, licenseConfig } from '@/site.config';
 import { Rss } from 'lucide-react';
 import { KineticLogo } from '@/components/animations/KineticLogo';
+import { ScrollReveal } from '@/components/animations/ScrollReveal';
 
 export const Footer: React.FC = () => {
   return (
     <footer className="mt-20 border-t border-paper-border bg-paper-card/30 py-12 text-sm text-paper-textSubtle transition-colors">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+      <ScrollReveal y={12} className="mx-auto max-w-5xl px-4 sm:px-6">
         <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
           {/* Brand & info */}
           <div className="flex items-center gap-3">
@@ -58,7 +59,7 @@ export const Footer: React.FC = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </footer>
   );
 };

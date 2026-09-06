@@ -34,12 +34,19 @@ export const PostCard: React.FC<PostCardProps> = ({ post }) => {
     });
   };
 
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty('--spot-x', `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty('--spot-y', `${e.clientY - rect.top}px`);
+  };
+
   return (
     <article
       ref={cardRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="stagger-item group relative flex flex-col justify-between rounded-2xl border border-paper-border bg-paper-card p-6 sm:p-7 transition-colors duration-200 hover:bg-paper-cardHover hover:border-paper-borderHover will-change-transform"
+      onMouseMove={handleMouseMove}
+      className="spotlight-card stagger-item group relative flex flex-col justify-between rounded-2xl border border-paper-border bg-paper-card p-6 sm:p-7 transition-colors duration-200 hover:bg-paper-cardHover hover:border-paper-borderHover will-change-transform"
     >
       <div>
         {/* Header: Category & Date */}

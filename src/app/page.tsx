@@ -1,9 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { Hero } from '@/components/Hero';
-import { PostCard } from '@/components/PostCard';
+import { Hero } from '@/components/layout/Hero';
+import { PostCard } from '@/components/blog/PostCard';
 import { AnimeStaggerList } from '@/components/animations/AnimeWrapper';
 import { AnimeDemo } from '@/components/animations/AnimeDemo';
+import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { getAllPosts, getAllCategories, getAllTags } from '@/lib/posts';
 import { siteConfig, profileConfig } from '@/site.config';
 import { withBasePath } from '@/lib/basePath';
@@ -48,114 +49,124 @@ export default function HomePage() {
             </AnimeStaggerList>
 
             {/* View all dispatches banner */}
-            <div className="rounded-2xl border border-paper-border bg-paper-card p-4 sm:p-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 text-center sm:text-left">
-              <div>
-                <h3 className="font-sans font-bold text-base text-paper-ink">
-                  Looking for something specific?
-                </h3>
-                <p className="text-xs sm:text-sm text-paper-textSubtle mt-0.5">
-                  Browse by category, tags, or search through all published writing.
-                </p>
+            <ScrollReveal>
+              <div className="spotlight-card rounded-2xl border border-paper-border bg-paper-card p-4 sm:p-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 text-center sm:text-left">
+                <div>
+                  <h3 className="font-sans font-bold text-base text-paper-ink">
+                    Looking for something specific?
+                  </h3>
+                  <p className="text-xs sm:text-sm text-paper-textSubtle mt-0.5">
+                    Browse by category, tags, or search through all published writing.
+                  </p>
+                </div>
+                <Link
+                  href="/posts"
+                  className="shrink-0 rounded-xl bg-paper-ink text-paper-bg px-5 py-3 text-xs font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center min-h-[44px]"
+                >
+                  Open Archive
+                </Link>
               </div>
-              <Link
-                href="/posts"
-                className="shrink-0 rounded-xl bg-paper-ink text-paper-bg px-5 py-3 text-xs font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center min-h-[44px]"
-              >
-                Open Archive
-              </Link>
-            </div>
+            </ScrollReveal>
           </div>
 
           {/* Right Sidebar: Profile & Taxonomy */}
           <div className="space-y-6">
             {/* Author Profile Card */}
-            <div className="rounded-2xl border border-paper-border bg-paper-card p-6 shadow-sm">
-              <div className="flex items-center gap-3.5">
-                <img
-                  src={withBasePath(profileConfig.avatar)}
-                  alt={profileConfig.name}
-                  className="h-12 w-12 rounded-xl border border-paper-border object-cover"
-                />
-                <div>
-                  <h3 className="text-base font-bold text-paper-ink tracking-tight">
-                    {profileConfig.name}
-                  </h3>
-                  <p className="font-mono text-xs text-paper-coral">
-                    @{profileConfig.handle}
-                  </p>
+            <ScrollReveal>
+              <div className="spotlight-card rounded-2xl border border-paper-border bg-paper-card p-6 shadow-sm">
+                <div className="flex items-center gap-3.5">
+                  <img
+                    src={withBasePath(profileConfig.avatar)}
+                    alt={profileConfig.name}
+                    className="h-12 w-12 rounded-xl border border-paper-border object-cover"
+                  />
+                  <div>
+                    <h3 className="text-base font-bold text-paper-ink tracking-tight">
+                      {profileConfig.name}
+                    </h3>
+                    <p className="font-mono text-xs text-paper-coral">
+                      @{profileConfig.handle}
+                    </p>
+                  </div>
+                </div>
+                <p className="mt-3.5 text-xs sm:text-sm leading-relaxed text-paper-textSubtle">
+                  {profileConfig.bio}
+                </p>
+                <div className="mt-4 border-t border-paper-border pt-3.5 flex items-center justify-between">
+                  <span className="text-[11px] font-mono text-paper-textSubtle">
+                    {posts.length} posts published
+                  </span>
+                  <Link
+                    href="/about"
+                    className="text-xs font-medium text-paper-ink hover:text-paper-coral transition-colors flex items-center gap-1"
+                  >
+                    <span>About</span>
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
                 </div>
               </div>
-              <p className="mt-3.5 text-xs sm:text-sm leading-relaxed text-paper-textSubtle">
-                {profileConfig.bio}
-              </p>
-              <div className="mt-4 border-t border-paper-border pt-3.5 flex items-center justify-between">
-                <span className="text-[11px] font-mono text-paper-textSubtle">
-                  {posts.length} posts published
-                </span>
-                <Link
-                  href="/about"
-                  className="text-xs font-medium text-paper-ink hover:text-paper-coral transition-colors flex items-center gap-1"
-                >
-                  <span>About</span>
-                  <ArrowRight className="h-3 w-3" />
-                </Link>
-              </div>
-            </div>
+            </ScrollReveal>
 
             {/* Anime.js Interactive Kinetic Sandbox Widget */}
-            <div className="rounded-2xl border border-paper-border bg-paper-card p-4 sm:p-5">
-              <div className="flex items-center gap-2 mb-3">
-                <Sparkles className="h-4 w-4 text-paper-coral" />
-                <span className="text-xs font-bold uppercase tracking-wider text-paper-ink font-sans">
-                  Anime.js v4 Engine
-                </span>
+            <ScrollReveal delay={60}>
+              <div className="spotlight-card rounded-2xl border border-paper-border bg-paper-card p-4 sm:p-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <Sparkles className="h-4 w-4 text-paper-coral" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-paper-ink font-sans">
+                    Anime.js v4 Engine
+                  </span>
+                </div>
+                <p className="text-xs text-paper-textSubtle mb-3 leading-relaxed">
+                  Kinetic spring physics running directly in the browser via Anime.js v4.
+                </p>
+                <AnimeDemo />
               </div>
-              <p className="text-xs text-paper-textSubtle mb-3 leading-relaxed">
-                Kinetic spring physics running directly in the browser via Anime.js v4.
-              </p>
-              <AnimeDemo />
-            </div>
+            </ScrollReveal>
 
             {/* Categories */}
-            <div className="rounded-2xl border border-paper-border bg-paper-card p-5">
-              <div className="flex items-center gap-2 mb-3 text-xs font-semibold uppercase tracking-wider text-paper-textSubtle font-sans">
-                <Folder className="h-3.5 w-3.5 text-paper-blue" />
-                <span>Categories</span>
+            <ScrollReveal delay={120}>
+              <div className="spotlight-card rounded-2xl border border-paper-border bg-paper-card p-5">
+                <div className="flex items-center gap-2 mb-3 text-xs font-semibold uppercase tracking-wider text-paper-textSubtle font-sans">
+                  <Folder className="h-3.5 w-3.5 text-paper-blue" />
+                  <span>Categories</span>
+                </div>
+                <div className="space-y-1">
+                  {categories.map((cat) => (
+                    <Link
+                      key={cat.category}
+                      href={`/posts?category=${encodeURIComponent(cat.category)}`}
+                      className="flex items-center justify-between rounded-lg px-2.5 py-1.5 text-xs text-paper-ink hover:bg-paper-subtle transition-colors"
+                    >
+                      <span>{cat.category}</span>
+                      <span className="font-mono text-[11px] text-paper-textSubtle">
+                        {cat.count}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
               </div>
-              <div className="space-y-1">
-                {categories.map((cat) => (
-                  <Link
-                    key={cat.category}
-                    href={`/posts?category=${encodeURIComponent(cat.category)}`}
-                    className="flex items-center justify-between rounded-lg px-2.5 py-1.5 text-xs text-paper-ink hover:bg-paper-subtle transition-colors"
-                  >
-                    <span>{cat.category}</span>
-                    <span className="font-mono text-[11px] text-paper-textSubtle">
-                      {cat.count}
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </div>
+            </ScrollReveal>
 
             {/* Popular Tags */}
-            <div className="rounded-2xl border border-paper-border bg-paper-card p-5">
-              <div className="flex items-center gap-2 mb-3 text-xs font-semibold uppercase tracking-wider text-paper-textSubtle font-sans">
-                <Tag className="h-3.5 w-3.5 text-paper-green" />
-                <span>Topics</span>
+            <ScrollReveal delay={180}>
+              <div className="spotlight-card rounded-2xl border border-paper-border bg-paper-card p-5">
+                <div className="flex items-center gap-2 mb-3 text-xs font-semibold uppercase tracking-wider text-paper-textSubtle font-sans">
+                  <Tag className="h-3.5 w-3.5 text-paper-green" />
+                  <span>Topics</span>
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {tags.map((t) => (
+                    <Link
+                      key={t.tag}
+                      href={`/posts?tag=${encodeURIComponent(t.tag)}`}
+                      className="rounded-lg border border-paper-border bg-paper-subtle px-2.5 py-1 font-mono text-[11px] text-paper-textSubtle hover:border-paper-borderHover hover:text-paper-coral transition-all"
+                    >
+                      #{t.tag}
+                    </Link>
+                  ))}
+                </div>
               </div>
-              <div className="flex flex-wrap gap-1.5">
-                {tags.map((t) => (
-                  <Link
-                    key={t.tag}
-                    href={`/posts?tag=${encodeURIComponent(t.tag)}`}
-                    className="rounded-lg border border-paper-border bg-paper-subtle px-2.5 py-1 font-mono text-[11px] text-paper-textSubtle hover:border-paper-borderHover hover:text-paper-coral transition-all"
-                  >
-                    #{t.tag}
-                  </Link>
-                ))}
-              </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

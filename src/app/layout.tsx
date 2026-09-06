@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { siteConfig, themeConfig, profileConfig } from '@/site.config';
 import { withBasePath } from '@/lib/basePath';
-import { Navbar } from '@/components/Navbar';
-import { Footer } from '@/components/Footer';
+import { Navbar } from '@/components/layout/Navbar';
+import { Footer } from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
   title: {

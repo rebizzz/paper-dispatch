@@ -10,6 +10,9 @@ const config: Config = {
   darkMode: ['class', '[data-theme="dark"]'],
   theme: {
     extend: {
+      screens: {
+        xs: '420px',
+      },
       colors: {
         paper: {
           bg: 'var(--paper-bg)',

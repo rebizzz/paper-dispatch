@@ -210,3 +210,92 @@ figure[data-rehype-pretty-code-figure] {
 :not(pre) > code::after {
   content: "" !important;
 }
+
+/* Cursor-tracked spotlight for interactive surfaces (cards) */
+.spotlight-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    280px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(247, 111, 83, 0.14),
+    transparent 70%
+  );
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Animated gradient hairline across the top of code block headers on hover */
+.code-block-wrapper {
+  position: relative;
+}
+
+.code-block-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #f76f53,
+    #6287f5,
+    #63f78b,
+    transparent
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: shimmerSlide 3s linear infinite;
+  pointer-events: none;
+}
+
+.code-block-wrapper:hover::before {
+  opacity: 0.8;
+}
+
+@keyframes shimmerSlide {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Underline sweep for prose links */
+.prose a {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.25s ease;
+}
+
+.prose a:hover {
+  background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

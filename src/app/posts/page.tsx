@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { getAllPosts, getAllCategories, getAllTags } from '@/lib/posts';
-import { PostsArchiveClient } from '@/components/PostsArchiveClient';
+import { PostsArchiveClient } from '@/components/blog/PostsArchiveClient';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
