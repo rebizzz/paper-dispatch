@@ -36,21 +36,21 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Social Links & RSS */}
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2">
             {profileConfig.socialLinks.map((item) => (
               <a
                 key={item.name}
                 href={item.url}
                 target={item.url.startsWith('http') ? '_blank' : undefined}
                 rel="noopener noreferrer"
-                className="text-xs font-mono text-paper-textSubtle hover:text-paper-coral transition-colors"
+                className="py-1.5 px-1 text-xs font-mono text-paper-textSubtle hover:text-paper-coral transition-colors inline-flex items-center min-h-[36px]"
               >
                 {item.name}
               </a>
             ))}
             <Link
               href="/rss.xml"
-              className="flex items-center gap-1 text-xs font-mono text-paper-textSubtle hover:text-paper-coral transition-colors"
+              className="py-1.5 px-1 flex items-center gap-1 text-xs font-mono text-paper-textSubtle hover:text-paper-coral transition-colors min-h-[36px]"
               title="RSS Feed"
             >
               <Rss className="h-3 w-3" />

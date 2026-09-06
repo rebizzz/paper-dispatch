@@ -72,7 +72,7 @@ export const PostsArchiveClient: React.FC<PostsArchiveClientProps> = ({
           {query && (
             <button
               onClick={() => setQuery('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-paper-textSubtle hover:text-paper-ink"
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-paper-textSubtle hover:text-paper-ink min-h-[36px] min-w-[36px] flex items-center justify-center"
               aria-label="Clear search"
             >
               <X className="h-4 w-4" />
@@ -95,7 +95,7 @@ export const PostsArchiveClient: React.FC<PostsArchiveClientProps> = ({
       <div className="flex flex-wrap items-center gap-1.5 border-b border-paper-border pb-4">
         <button
           onClick={() => setSelectedCategory('')}
-          className={`rounded-xl px-3.5 py-1.5 text-xs font-medium transition-all ${
+          className={`rounded-xl px-3.5 py-2 text-xs font-medium transition-all min-h-[36px] ${
             !selectedCategory
               ? 'bg-paper-ink text-paper-bg shadow-sm'
               : 'border border-paper-border bg-paper-subtle text-paper-textSubtle hover:text-paper-ink hover:bg-paper-card'
@@ -107,7 +107,7 @@ export const PostsArchiveClient: React.FC<PostsArchiveClientProps> = ({
           <button
             key={cat.category}
             onClick={() => setSelectedCategory(selectedCategory === cat.category ? '' : cat.category)}
-            className={`rounded-xl px-3.5 py-1.5 text-xs font-medium transition-all ${
+            className={`rounded-xl px-3.5 py-2 text-xs font-medium transition-all min-h-[36px] ${
               selectedCategory === cat.category
                 ? 'bg-paper-ink text-paper-bg shadow-sm'
                 : 'border border-paper-border bg-paper-subtle text-paper-textSubtle hover:text-paper-ink hover:bg-paper-card'
@@ -119,7 +119,7 @@ export const PostsArchiveClient: React.FC<PostsArchiveClientProps> = ({
       </div>
 
       {/* Results stats */}
-      <div className="flex items-center justify-between text-xs font-mono text-paper-textSubtle">
+      <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-paper-textSubtle">
         <span>Showing {filteredPosts.length} {filteredPosts.length === 1 ? 'dispatch' : 'dispatches'}</span>
         {selectedTag && (
           <span className="flex items-center gap-1 text-paper-coral">

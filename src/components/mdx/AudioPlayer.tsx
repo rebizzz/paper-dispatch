@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX, Disc3 } from 'lucide-react';
+import { withBasePath } from '@/lib/basePath';
 
 interface AudioPlayerProps {
   src: string;
@@ -81,31 +82,31 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({
   };
 
   return (
-    <div className="my-8 overflow-hidden rounded-2xl border border-paper-border bg-paper-card p-5 shadow-sm transition-all duration-200">
-      <audio ref={audioRef} src={src} preload="metadata" />
+    <div className="my-8 overflow-hidden rounded-2xl border border-paper-border bg-paper-card p-4 sm:p-5 shadow-sm transition-all duration-200">
+      <audio ref={audioRef} src={withBasePath(src)} preload="metadata" />
 
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex items-center justify-between gap-3 sm:gap-4">
         {/* Left: Disc/Icon + Track Info */}
-        <div className="flex items-center gap-3.5">
+        <div className="flex min-w-0 flex-1 items-center gap-3 sm:gap-3.5">
           <div
-            className={`relative flex h-11 w-11 items-center justify-center rounded-xl bg-paper-subtle border border-paper-border text-paper-coral ${
+            className={`relative flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-paper-subtle border border-paper-border text-paper-coral ${
               isPlaying ? 'animate-spin' : ''
             }`}
             style={{ animationDuration: '6s' }}
           >
             <Disc3 className="h-5 w-5 text-paper-coral" />
           </div>
-          <div>
+          <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2">
-              <span className="font-sans font-semibold text-paper-ink text-sm tracking-tight">{title}</span>
-              <span className="rounded-md bg-paper-coral/10 px-2 py-0.5 text-[10px] font-mono font-medium text-paper-coral border border-paper-coral/20">Audio</span>
+              <span className="font-sans font-semibold text-paper-ink text-sm tracking-tight truncate">{title}</span>
+              <span className="shrink-0 rounded-md bg-paper-coral/10 px-2 py-0.5 text-[10px] font-mono font-medium text-paper-coral border border-paper-coral/20">Audio</span>
             </div>
-            <p className="text-xs text-paper-textSubtle">{artist}</p>
+            <p className="text-xs text-paper-textSubtle truncate">{artist}</p>
           </div>
         </div>
 
         {/* Right: Controls */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
           <button
             onClick={togglePlay}
             aria-label={isPlaying ? 'Pause audio' : 'Play audio'}
@@ -117,7 +118,7 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({
           <button
             onClick={toggleMute}
             aria-label={isMuted ? 'Unmute' : 'Mute'}
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-paper-border bg-paper-subtle text-paper-textSubtle hover:text-paper-ink"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-paper-border bg-paper-subtle text-paper-textSubtle hover:text-paper-ink"
           >
             {isMuted ? <VolumeX className="h-4 w-4 text-paper-coral" /> : <Volume2 className="h-4 w-4" />}
           </button>
@@ -126,14 +127,14 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({
 
       {/* Progress & Time */}
       <div className="mt-4 space-y-1.5">
-        <div className="relative flex items-center">
+        <div className="relative flex items-center py-1">
           <input
             type="range"
             min="0"
             max={totalDuration || 100}
             value={currentTime}
             onChange={handleSeek}
-            className="h-1.5 w-full cursor-pointer appearance-none rounded-lg bg-paper-subtle accent-paper-coral outline-none"
+            className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-paper-subtle accent-paper-coral outline-none"
           />
         </div>
         <div className="flex justify-between font-mono text-[11px] text-paper-textSubtle">

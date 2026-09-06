@@ -90,27 +90,27 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   };
 
   return (
-    <div className="code-block-wrapper group relative my-8 overflow-hidden rounded-2xl border border-[#26262e] bg-[#0f0f13] shadow-2xl transition-all duration-200 hover:border-[#34343e]">
+    <div className="code-block-wrapper group relative my-8 w-full max-w-full min-w-0 overflow-hidden rounded-2xl border border-[#26262e] bg-[#0f0f13] shadow-2xl transition-all duration-200 hover:border-[#34343e]">
       {/* Code Editor Header Bar */}
-      <div className="flex items-center justify-between border-b border-[#222228] bg-[#16161c] px-4 py-3 select-none">
-        <div className="flex items-center gap-3.5">
+      <div className="flex items-center justify-between border-b border-[#222228] bg-[#16161c] px-3 sm:px-4 py-2.5 sm:py-3 select-none gap-2">
+        <div className="flex min-w-0 items-center gap-2 sm:gap-3.5">
           {/* macOS traffic light dots */}
-          <div className="flex items-center gap-1.5">
-            <span className="h-3 w-3 rounded-full bg-[#ff5f56]/90 border border-[#e0443e]/50 shadow-sm" />
-            <span className="h-3 w-3 rounded-full bg-[#ffbd2e]/90 border border-[#dea123]/50 shadow-sm" />
-            <span className="h-3 w-3 rounded-full bg-[#27c93f]/90 border border-[#1aab29]/50 shadow-sm" />
+          <div className="flex items-center gap-1.5 shrink-0">
+            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#ff5f56]/90 border border-[#e0443e]/50 shadow-sm" />
+            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#ffbd2e]/90 border border-[#dea123]/50 shadow-sm" />
+            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#27c93f]/90 border border-[#1aab29]/50 shadow-sm" />
           </div>
 
           {/* Filename or Language indicator */}
-          <div className="flex items-center gap-1.5 text-xs font-mono">
+          <div className="flex min-w-0 items-center gap-1.5 text-xs font-mono">
             {filename ? (
-              <span className="flex items-center gap-1.5 rounded-md bg-[#22222c] px-2.5 py-1 text-xs font-medium text-zinc-200 border border-[#2e2e38]">
-                <FileCode className="h-3.5 w-3.5 text-paper-coral" />
-                {filename}
+              <span className="flex min-w-0 items-center gap-1.5 rounded-md bg-[#22222c] px-2 sm:px-2.5 py-1 text-xs font-medium text-zinc-200 border border-[#2e2e38]">
+                <FileCode className="h-3.5 w-3.5 shrink-0 text-paper-coral" />
+                <span className="truncate max-w-[110px] sm:max-w-none">{filename}</span>
               </span>
             ) : (
-              <span className="flex items-center gap-1.5 rounded-md bg-[#22222c] px-2.5 py-1 text-[11px] font-semibold tracking-wide text-zinc-200 border border-[#2e2e38] uppercase">
-                <Terminal className="h-3.5 w-3.5 text-paper-coral" />
+              <span className="flex items-center gap-1.5 rounded-md bg-[#22222c] px-2 sm:px-2.5 py-1 text-[10px] sm:text-[11px] font-semibold tracking-wide text-zinc-200 border border-[#2e2e38] uppercase">
+                <Terminal className="h-3.5 w-3.5 shrink-0 text-paper-coral" />
                 <span>{displayLang}</span>
               </span>
             )}
@@ -118,7 +118,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
         </div>
 
         {/* Action Controls: Wrap Toggle & Copy */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <button
             onClick={() => setWrap(!wrap)}
             aria-label="Toggle word wrap"
@@ -135,18 +135,18 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
           <button
             onClick={handleCopy}
             aria-label="Copy snippet"
-            className="flex items-center gap-1.5 rounded-lg border border-[#2e2e3a] bg-[#1c1c24] px-3 py-1.5 text-xs font-mono text-zinc-300 transition-all hover:border-paper-coral/40 hover:bg-[#252530] hover:text-white active:scale-95 shadow-sm"
+            className="flex items-center gap-1.5 rounded-lg border border-[#2e2e3a] bg-[#1c1c24] px-2.5 sm:px-3 py-1.5 text-xs font-mono text-zinc-300 transition-all hover:border-paper-coral/40 hover:bg-[#252530] hover:text-white active:scale-95 shadow-sm"
             title="Copy code to clipboard"
           >
             {copied ? (
               <>
-                <Check className="h-3.5 w-3.5 text-paper-green" />
-                <span className="text-paper-green font-medium">Copied!</span>
+                <Check className="h-3.5 w-3.5 text-paper-green shrink-0" />
+                <span className="text-paper-green font-medium hidden sm:inline">Copied!</span>
               </>
             ) : (
               <>
-                <Copy className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-200" />
-                <span className="text-zinc-400 group-hover:text-zinc-200">Copy</span>
+                <Copy className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-200 shrink-0" />
+                <span className="text-zinc-400 group-hover:text-zinc-200 hidden sm:inline">Copy</span>
               </>
             )}
           </button>

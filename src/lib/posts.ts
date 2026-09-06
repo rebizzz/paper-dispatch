@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
 import type { Post, PostMeta, TocItem } from '@/types/blog';
+import { withBasePath } from './basePath';
 
 const POSTS_DIR = path.join(process.cwd(), 'content', 'posts');
 
@@ -31,7 +32,7 @@ export function getAllPosts(): PostMeta[] {
         updated: data.updated ? new Date(data.updated).toISOString().split('T')[0] : undefined,
         category: data.category || 'General',
         tags: data.tags || [],
-        image: data.image || '',
+        image: data.image ? withBasePath(data.image) : '',
         draft: Boolean(data.draft),
         featured: Boolean(data.featured),
         readingTime: readStats.text,
@@ -67,7 +68,7 @@ export function getPostBySlug(slug: string): Post | null {
     updated: data.updated ? new Date(data.updated).toISOString().split('T')[0] : undefined,
     category: data.category || 'General',
     tags: data.tags || [],
-    image: data.image || '',
+    image: data.image ? withBasePath(data.image) : '',
     draft: Boolean(data.draft),
     featured: Boolean(data.featured),
     readingTime: readStats.text,

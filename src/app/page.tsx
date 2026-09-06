@@ -6,6 +6,7 @@ import { AnimeStaggerList } from '@/components/animations/AnimeWrapper';
 import { AnimeDemo } from '@/components/animations/AnimeDemo';
 import { getAllPosts, getAllCategories, getAllTags } from '@/lib/posts';
 import { siteConfig, profileConfig } from '@/site.config';
+import { withBasePath } from '@/lib/basePath';
 import { ArrowRight, Sparkles, Folder, Tag, BookOpen, Layers } from 'lucide-react';
 
 export default function HomePage() {
@@ -47,7 +48,7 @@ export default function HomePage() {
             </AnimeStaggerList>
 
             {/* View all dispatches banner */}
-            <div className="rounded-2xl border border-paper-border bg-paper-card p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="rounded-2xl border border-paper-border bg-paper-card p-4 sm:p-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 text-center sm:text-left">
               <div>
                 <h3 className="font-sans font-bold text-base text-paper-ink">
                   Looking for something specific?
@@ -58,7 +59,7 @@ export default function HomePage() {
               </div>
               <Link
                 href="/posts"
-                className="shrink-0 rounded-xl bg-paper-ink text-paper-bg px-5 py-2.5 text-xs font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all"
+                className="shrink-0 rounded-xl bg-paper-ink text-paper-bg px-5 py-3 text-xs font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center min-h-[44px]"
               >
                 Open Archive
               </Link>
@@ -71,7 +72,7 @@ export default function HomePage() {
             <div className="rounded-2xl border border-paper-border bg-paper-card p-6 shadow-sm">
               <div className="flex items-center gap-3.5">
                 <img
-                  src={profileConfig.avatar}
+                  src={withBasePath(profileConfig.avatar)}
                   alt={profileConfig.name}
                   className="h-12 w-12 rounded-xl border border-paper-border object-cover"
                 />
@@ -102,7 +103,7 @@ export default function HomePage() {
             </div>
 
             {/* Anime.js Interactive Kinetic Sandbox Widget */}
-            <div className="rounded-2xl border border-paper-border bg-paper-card p-5">
+            <div className="rounded-2xl border border-paper-border bg-paper-card p-4 sm:p-5">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-4 w-4 text-paper-coral" />
                 <span className="text-xs font-bold uppercase tracking-wider text-paper-ink font-sans">

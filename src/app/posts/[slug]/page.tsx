@@ -8,6 +8,7 @@ import { TableOfContents } from '@/components/TableOfContents';
 import { GiscusComments } from '@/components/GiscusComments';
 import { KineticFloatingDock } from '@/components/animations/KineticFloatingDock';
 import siteConfig from '@/site.config';
+import { withBasePath } from '@/lib/basePath';
 import { ArrowLeft, Calendar, Clock, ArrowRight } from 'lucide-react';
 
 interface PostPageProps {
@@ -57,11 +58,11 @@ export default function PostPage({ params }: PostPageProps) {
   const toc = extractToc(post.content);
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+    <div className="mx-auto max-w-5xl px-3.5 py-6 sm:px-6 sm:py-10">
       {/* Back button */}
       <Link
         href="/posts"
-        className="group inline-flex items-center gap-2 text-xs font-mono text-paper-textSubtle hover:text-paper-coral transition-colors mb-8"
+        className="group inline-flex items-center gap-2 text-xs font-mono text-paper-textSubtle hover:text-paper-coral transition-colors mb-6 sm:mb-8 py-1.5 min-h-[36px]"
       >
         <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1" />
         <span>Back to dispatches</span>
@@ -71,7 +72,7 @@ export default function PostPage({ params }: PostPageProps) {
         {/* Main Post Content Column */}
         <div className="min-w-0 flex-1">
           {/* Post Header */}
-          <header className="border-b border-paper-border pb-8 mb-8">
+          <header className="border-b border-paper-border pb-6 sm:pb-8 mb-6 sm:mb-8">
             <div className="flex flex-wrap items-center gap-2 mb-4">
               {post.meta.category && (
                 <span className="rounded-lg bg-paper-coral/10 px-2.5 py-0.5 text-[11px] font-mono font-medium text-paper-coral border border-paper-coral/20">
@@ -89,7 +90,7 @@ export default function PostPage({ params }: PostPageProps) {
               ))}
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-paper-ink font-sans leading-[1.12]">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-paper-ink font-sans leading-[1.15]">
               {post.meta.title}
             </h1>
 
@@ -103,7 +104,7 @@ export default function PostPage({ params }: PostPageProps) {
             <div className="mt-6 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-paper-border">
               <div className="flex items-center gap-3">
                 <img
-                  src={siteConfig.site.avatar}
+                  src={withBasePath(siteConfig.site.avatar)}
                   alt={siteConfig.site.author}
                   className="h-10 w-10 rounded-xl border border-paper-border object-cover"
                 />

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Maximize2, X } from 'lucide-react';
+import { withBasePath } from '@/lib/basePath';
 
 interface ZoomableImageProps {
   src: string;
@@ -42,7 +43,7 @@ export const ZoomableImage: React.FC<ZoomableImageProps> = ({
           onClick={() => setIsOpen(true)}
         >
           <img
-            src={src}
+            src={withBasePath(src)}
             alt={alt}
             className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
             decoding="async"
@@ -64,21 +65,21 @@ export const ZoomableImage: React.FC<ZoomableImageProps> = ({
       {/* Lightbox Modal */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm animate-fade-in"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-3 sm:p-4 backdrop-blur-sm animate-fade-in"
           onClick={() => setIsOpen(false)}
         >
           <button
             onClick={() => setIsOpen(false)}
-            className="absolute top-5 right-5 flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white hover:bg-white/20 transition-colors"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 text-white hover:bg-white/25 active:scale-95 transition-all z-20"
             aria-label="Close image preview"
           >
             <X className="h-5 w-5" />
           </button>
           <div
-            className="relative max-h-[90vh] max-w-[92vw] overflow-hidden rounded-2xl border border-white/10 shadow-2xl"
+            className="relative max-h-[90vh] max-w-[95vw] sm:max-w-[92vw] overflow-hidden rounded-2xl border border-white/10 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <img src={src} alt={alt} className="max-h-[82vh] max-w-[92vw] object-contain" />
+            <img src={withBasePath(src)} alt={alt} className="max-h-[70vh] sm:max-h-[82vh] max-w-[95vw] sm:max-w-[92vw] object-contain" />
             {(caption || alt) && (
               <div className="bg-[#16161b] p-3 text-center text-xs text-zinc-300 border-t border-white/10 font-mono">
                 {caption || alt}

@@ -52,11 +52,11 @@ export const Navbar: React.FC = () => {
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-paper-subtle border border-paper-border transition-all group-hover:scale-105 active:scale-95 group-hover:border-paper-coral/30">
             <KineticLogo className="h-5 w-5 text-paper-coral" />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col min-w-0">
             <span className="font-sans text-base font-bold tracking-tight text-paper-ink group-hover:text-paper-coral transition-colors">
               {siteConfig.title}
             </span>
-            <span className="text-[10px] tracking-wider uppercase text-paper-textSubtle -mt-0.5">
+            <span className="text-[10px] tracking-wider uppercase text-paper-textSubtle -mt-0.5 truncate max-w-[140px] sm:max-w-none hidden xs:block">
               {siteConfig.subtitle || 'journal & field notes'}
             </span>
           </div>
@@ -129,7 +129,7 @@ export const Navbar: React.FC = () => {
           {/* Mobile menu trigger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex md:hidden h-9 w-9 items-center justify-center rounded-xl border border-paper-border bg-paper-subtle text-paper-ink hover:bg-paper-muted"
+            className="flex md:hidden h-10 w-10 items-center justify-center rounded-xl border border-paper-border bg-paper-subtle text-paper-ink hover:bg-paper-muted active:scale-95 transition-all"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -139,7 +139,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Menu dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-paper-border bg-paper-card px-4 py-4 space-y-2 animate-fade-in">
+        <div className="md:hidden border-b border-paper-border bg-paper-card px-4 py-4 space-y-1.5 animate-fade-in">
           {navConfig.map((item) => (
             <Link
               key={item.path}
@@ -147,7 +147,7 @@ export const Navbar: React.FC = () => {
               target={item.external ? '_blank' : undefined}
               rel={item.external ? 'noopener noreferrer' : undefined}
               onClick={() => setMobileMenuOpen(false)}
-              className={`block rounded-xl px-3.5 py-2 text-sm font-medium transition-colors ${
+              className={`flex items-center rounded-xl px-3.5 py-2.5 min-h-[44px] text-sm font-medium transition-colors ${
                 isActive(item.path)
                   ? 'bg-paper-coral/15 text-paper-coral font-semibold'
                   : 'text-paper-ink hover:bg-paper-subtle'
@@ -156,8 +156,8 @@ export const Navbar: React.FC = () => {
               {item.title}
             </Link>
           ))}
-          <div className="pt-3 border-t border-paper-border flex items-center justify-between">
-            <div className="flex gap-4">
+          <div className="pt-3 border-t border-paper-border flex flex-wrap items-center justify-between gap-2">
+            <div className="flex flex-wrap gap-x-4 gap-y-2">
               {profileConfig.socialLinks.map((s) => (
                 <a
                   key={s.name}

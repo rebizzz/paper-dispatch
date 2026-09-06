@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { siteConfig, profileConfig, licenseConfig } from '@/site.config';
+import { withBasePath } from '@/lib/basePath';
 import { Cpu, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -10,12 +11,12 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-      <div className="space-y-12">
+    <div className="mx-auto max-w-3xl px-3.5 py-8 sm:px-6 sm:py-12">
+      <div className="space-y-10 sm:space-y-12">
         {/* Header Profile */}
         <div className="flex flex-col sm:flex-row sm:items-center gap-6 border-b border-paper-border pb-8">
           <img
-            src={profileConfig.avatar}
+            src={withBasePath(profileConfig.avatar)}
             alt={profileConfig.name}
             className="h-20 w-20 rounded-2xl border border-paper-border object-cover"
           />

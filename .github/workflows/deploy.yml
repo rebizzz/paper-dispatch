@@ -28,7 +28,7 @@ jobs:
           bun-version: latest
 
       - name: Install dependencies
-        run: bun install --frozen-lockfile || bun install
+        run: bun install
 
       - name: Build static site for GitHub Pages
         run: |

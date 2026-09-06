@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { siteConfig, themeConfig, profileConfig } from '@/site.config';
+import { withBasePath } from '@/lib/basePath';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   icons: {
-    icon: '/favicon.svg',
+    icon: withBasePath('/favicon.svg'),
   },
   other: {
     ...(themeConfig.darkReaderLock ? { 'darkreader-lock': '' } : {}),

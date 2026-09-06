@@ -14,8 +14,8 @@ export default function TagsPage() {
   const allPosts = getAllPosts();
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6">
-      <div className="mb-10 space-y-2">
+    <div className="mx-auto max-w-5xl px-3.5 py-8 sm:px-6 sm:py-12">
+      <div className="mb-8 sm:mb-10 space-y-2">
         <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-paper-ink font-sans">
           Topics & <em className="text-paper-coral font-normal italic font-serif">Tags</em>
         </h1>
@@ -24,7 +24,7 @@ export default function TagsPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+      <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
         {tags.map((item) => (
           <Link
             key={item.tag}

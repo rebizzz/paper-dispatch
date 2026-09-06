@@ -86,7 +86,7 @@ export const KineticFloatingDock: React.FC = () => {
     <div
       ref={dockRef}
       aria-label="Kinetic Reading Dock"
-      className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full border border-paper-border bg-paper-card/85 p-1.5 shadow-xl backdrop-blur-md transition-colors hover:border-paper-borderHover"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-1.5 sm:gap-2 rounded-full border border-paper-border bg-paper-card/90 p-1.5 shadow-xl backdrop-blur-md transition-all hover:border-paper-borderHover scale-90 sm:scale-100 origin-bottom-right"
     >
       <div className="relative flex h-10 w-10 items-center justify-center">
         <svg className="h-10 w-10 -rotate-90 transform" viewBox="0 0 44 44">

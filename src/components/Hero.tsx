@@ -65,18 +65,18 @@ export const Hero: React.FC = () => {
     >
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         {/* Status pill */}
-        <div className="hero-element status-pill opacity-0 inline-flex items-center gap-2 rounded-full border border-paper-border bg-paper-subtle px-3 py-1 text-xs text-paper-textSubtle mb-6">
-          <span className="relative flex h-2 w-2">
+        <div className="hero-element status-pill opacity-0 inline-flex max-w-full items-center gap-2 rounded-full border border-paper-border bg-paper-subtle px-3 py-1 text-xs text-paper-textSubtle mb-6">
+          <span className="relative flex h-2 w-2 shrink-0">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-paper-coral opacity-60" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-paper-coral" />
           </span>
-          <span className="font-mono text-[11px] text-paper-textSubtle">
+          <span className="font-mono text-[11px] text-paper-textSubtle truncate max-w-[220px] sm:max-w-none">
             {profileConfig.statusBadge || siteConfig.subtitle}
           </span>
         </div>
 
         {/* Hero title in Bricolage Grotesque + Junicode Italic in Paper Coral */}
-        <h1 className="hero-element opacity-0 text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-paper-ink leading-[1.08] max-w-3xl">
+        <h1 className="hero-element opacity-0 text-3xl sm:text-6xl md:text-7xl font-bold tracking-tight text-paper-ink leading-[1.08] max-w-3xl">
           Quiet software,{' '}
           <em className="text-paper-coral font-normal italic font-serif">
             declarative
@@ -94,13 +94,13 @@ export const Hero: React.FC = () => {
         </p>
 
         {/* Action Buttons */}
-        <div className="hero-element opacity-0 mt-8 flex flex-wrap items-center gap-3">
+        <div className="hero-element opacity-0 mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
           <Link
             ref={primaryBtnRef}
             href="/posts"
             onMouseEnter={() => handleBtnHover(primaryBtnRef.current)}
             onMouseLeave={() => handleBtnLeave(primaryBtnRef.current)}
-            className="flex items-center gap-2 rounded-xl bg-paper-ink text-paper-bg px-6 py-3 text-sm font-semibold shadow-sm transition-all active:scale-[0.98]"
+            className="flex items-center justify-center gap-2 rounded-xl bg-paper-ink text-paper-bg px-6 py-3 text-sm font-semibold shadow-sm transition-all active:scale-[0.98]"
           >
             <span>Read Dispatches</span>
             <ArrowRight className="h-4 w-4 text-paper-coral" />
@@ -111,7 +111,7 @@ export const Hero: React.FC = () => {
             href="/about"
             onMouseEnter={() => handleBtnHover(secondaryBtnRef.current)}
             onMouseLeave={() => handleBtnLeave(secondaryBtnRef.current)}
-            className="flex items-center gap-2 rounded-xl border border-paper-border bg-paper-subtle text-paper-ink px-5 py-3 text-sm font-medium transition-all hover:bg-paper-card hover:border-paper-borderHover active:scale-[0.98]"
+            className="flex items-center justify-center gap-2 rounded-xl border border-paper-border bg-paper-subtle text-paper-ink px-5 py-3 text-sm font-medium transition-all hover:bg-paper-card hover:border-paper-borderHover active:scale-[0.98]"
           >
             <BookOpen className="h-4 w-4 text-paper-textSubtle" />
             <span>Colophon & About</span>
