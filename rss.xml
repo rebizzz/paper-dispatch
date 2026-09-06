@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title><![CDATA[rebizzz.dev]]></title>
+    <link>https://rebizzz.dev</link>
+    <description><![CDATA[A sleek, moody digital garden for daily happenings, systems tinkering, code snippets, and audio/video dispatches.]]></description>
+    <language>en</language>
+    <atom:link href="https://rebizzz.dev/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title><![CDATA[Designing Paper: Editorial Typography, Anime.js, and Calm Interfaces]]></title>
+      <link>https://rebizzz.dev/posts/01-welcome-to-paper-and-animejs</link>
+      <guid>https://rebizzz.dev/posts/01-welcome-to-paper-and-animejs</guid>
+      <pubDate>Sun, 06 Sep 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[An exploration into why warm paper palettes, Bricolage Grotesque, Junicode italics, and Anime.js spring physics make personal publishing feel intentional.]]></description>
+      <category>design</category><category>typography</category><category>animejs</category><category>nextjs</category><category>css</category>
+    </item>
+    <item>
+      <title><![CDATA[Rich Media Toolkit: Code Blocks, Video Embeds & Audio Players]]></title>
+      <link>https://rebizzz.dev/posts/02-syntax-code-audio-and-video</link>
+      <guid>https://rebizzz.dev/posts/02-syntax-code-audio-and-video</guid>
+      <pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A showcase of every rich media block supported out of the box in MDX: Iosevka code blocks with copy feedback, native 60fps MP4 screencasts, lossless ambient audio, and lightbox images.]]></description>
+      <category>mdx</category><category>code</category><category>audio</category><category>video</category><category>media</category>
+    </item>
+    <item>
+      <title><![CDATA[Declarative Bliss: NixOS, Wayland & Daily Happenings]]></title>
+      <link>https://rebizzz.dev/posts/03-declarative-nixos-and-wayland</link>
+      <guid>https://rebizzz.dev/posts/03-declarative-nixos-and-wayland</guid>
+      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[Notes from the terminal: configuring scrollable tiling window managers, hermetic flake devshells, and declarative development environments.]]></description>
+      <category>nixos</category><category>wayland</category><category>niri</category><category>dev-setup</category>
+    </item>
+    <item>
+      <title><![CDATA[Daily Dispatch #01: Midnight Hacking & Clean Layouts]]></title>
+      <link>https://rebizzz.dev/posts/04-daily-dispatch-01</link>
+      <guid>https://rebizzz.dev/posts/04-daily-dispatch-01</guid>
+      <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A quick log of late-night thoughts on typography, mechanical keyboards, and keeping digital spaces clutter-free.]]></description>
+      <category>journal</category><category>workflow</category><category>thoughts</category>
+    </item>
+  </channel>
+</rss>
