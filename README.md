@@ -6,22 +6,6 @@ Inspired by physical print layouts and modular architectures like [Fuwari](https
 
 ---
 
-## Previews
-
-### Dark Paper Canvas
-![Dark Paper Mode](docs/screenshots/home-dark.png)
-
-### Light Paper Canvas
-![Light Paper Mode](docs/screenshots/home-light.png)
-
-### Rich Media & Iosevka Code Blocks
-![Code Blocks & Media](docs/screenshots/post-media-code.png)
-
-### Anime.js v4 Kinetic Studio
-![Kinetic Studio](docs/screenshots/kinetic-studio.png)
-
----
-
 ## Features
 
 - 📜 **Warm Paper Aesthetics**: Balanced dark charcoal paper (`#19191d`) and cream light paper (`#f2f0e3`), paired with signature Paper Coral (`#f76f53`), Electric Blue (`#6287f5`), and Emerald (`#63f78b`).

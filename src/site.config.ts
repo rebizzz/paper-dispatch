@@ -94,10 +94,11 @@ export const licenseConfig: LicenseConfig = {
 
 export const giscusConfig: GiscusConfig = {
   enable: true,
-  repo: 'rebizzz/rebizzz',
-  repoId: 'R_kgDOS8h6SQ',
-  category: 'General',
-  categoryId: 'DIC_kwDOS8h6Sc4DE-_S',
+  enabled: true,
+  repo: 'rebizzz/paper-dispatch',
+  repoId: 'R_kgDOUQBhJw',
+  category: 'Announcements',
+  categoryId: 'DIC_kwDOUQBhJ84DE_gU',
   mapping: 'pathname',
   reactionsEnabled: '1',
   emitMetadata: '0',
